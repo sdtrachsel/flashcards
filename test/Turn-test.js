@@ -21,22 +21,20 @@ describe('Turn', function () {
         expect(turn).to.be.an.instanceof(Turn);
     });
 
-    it.skip('should store a users guess', function () {
+    it.skip('should store a users guess to a question', function () {
         expect(turn.guess).to.equal('array');
     });
 
-    it.skip('should store a users guess', function () {      
+    it.skip('should store card currently in play', function () {      
         expect(turn.card).to.be.an.instanceof(Card);
-        expect(turn.card.question).to.equal("What is a comma-separated list of related values?");
-        expect(turn.card.answers).to.equal(["array", "object", "function"]);
-        expect(turn.card.correctAnswer).to.equal( "array");
+        expect(turn.returnCard()).to.deep.equal(card);
     });
 
     it.skip('should return a users guess', function () {      
-        expect(turn.returnGuess()).to.equal(turn.card.guess);
+        expect(turn.returnGuess()).to.equal(turn.guess);
     });
 
-    it.skip('should return a the card', function () {      
+    it.skip('should return a the card in play', function () {      
         expect(turn.returnCard()).to.deep.equal(turn.card);
     });
 
