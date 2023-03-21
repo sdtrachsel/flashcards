@@ -22,7 +22,7 @@ describe('Card', function() {
   })
 
   it.skip('should store a question', function() {
-    expect(card1.question).to.equal('What allows you to define a set of related information using key-value pairs?');
+    expect(card.question).to.equal('What allows you to define a set of related information using key-value pairs?');
   });  
 
   it.skip('should store a list of possible answers', function() {
