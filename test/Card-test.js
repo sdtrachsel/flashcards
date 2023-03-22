@@ -21,15 +21,15 @@ describe('Card', function () {
     expect(card.id).to.equal(1);
   })
 
-  it.skip('should store a question', function () {
+  it('should store a question', function () {
     expect(card.question).to.equal('What allows you to define a set of related information using key-value pairs?');
   });
 
-  it.skip('should store a list of possible answers', function () {
+  it('should store a list of possible answers', function () {
     expect(card.answers).to.deep.equal(['object', 'array', 'function']);
   });
 
-  it.skip('should store the correct answer', function () {
+  it('should store the correct answer', function () {
     expect(card.correctAnswer).to.equal('object');
   });
 });
