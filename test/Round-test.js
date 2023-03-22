@@ -29,15 +29,15 @@ describe('Round', function () {
         expect(Round).to.be.a('function');
     });
 
-    it('should be an instance of Card', function () {
+    it('should be an instance of Round', function () {
         expect(round).to.be.an.instanceof(Round);
     });
 
     it('should store a deck of cards', function () {
-        expect(round.deck.length).to.equal(3);
-        expect(round.deck[0].id).to.equal(1);
-        expect(round.deck[1].id).to.equal(2);
-        expect(round.deck[2].id).to.equal(3);
+        expect(round.deck.cards.length).to.equal(3);
+        expect(round.deck.cards[0].id).to.equal(1);
+        expect(round.deck.cards[1].id).to.equal(2);
+        expect(round.deck.cards[2].id).to.equal(3);
     })
 
     it('should store the current card being played', function () {
@@ -57,15 +57,10 @@ describe('Round', function () {
     });
 
     it('should return the current card', function () {
-        expect(round.returnCurrentCard()).to.be.a('function');
-        expect(round.returnCurrentCard().id).to.equal(0);
+        expect(round.reurnCurrentCard()).to.deep.equal(round.currentCard);
     })
 
-    it('should be able to take a turn', function () {
-        expect(round.takeTurn('guess')).to.be.a('function');
-    })
-
-    it('should update the turn count', function () {
+    it('should take a turn to update the turn count', function () {
         round.takeTurn('guess');
 
         expect(round.turns).to.equal(1);
@@ -75,13 +70,6 @@ describe('Round', function () {
         expect(round.turns).to.equal(2);
     });
 
-    it('should let the user know if the answer is correct', function () {
-        expect(round.takeTurn('guess').to.equal('incorrect!'));
-
-        expect(round.takeTurn('array').to.equal('correct!'));
-    });
-
-
     it('should update current card to next card', function () {
         round.takeTurn('guess')
 
@@ -90,6 +78,12 @@ describe('Round', function () {
         round.takeTurn('guess')
 
         expect(round.currentCard.id).to.equal(3);
+    });
+
+    it('should let the user know if the answer is correct', function () {
+        expect(round.takeTurn('guess')).to.equal('incorrect!');
+
+        expect(round.takeTurn('array')).to.equal('correct!');
     });
 
     it('should add the card id of incorrect guesses to incorrect guesses list', function () {
