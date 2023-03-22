@@ -1,15 +1,15 @@
 class Turn {
     constructor(guess, card) {
-        this.guess = guess
-        this.card = card
+        this.guess = guess;
+        this.card = card;
     }
 
     returnGuess(){
-        return this.guess
+        return this.guess;
     }
 
     returnCard(){
-        return this.card
+        return this.card;
     }
 
     evaluateGuess(){
@@ -17,15 +17,15 @@ class Turn {
             return true;
         } else {
             return false;
-        }
+        };
     }
 
     giveFeedback(){
         if(this.evaluateGuess()){
-            return 'correct!'
+            return 'correct!';
         } else {
-            return 'incorrect!'
-        }
+            return 'incorrect!';
+        };
     }
 }
 
