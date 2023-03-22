@@ -13,32 +13,32 @@ describe('Turn', function () {
         turn = new Turn('array', card);
        });
 
-    it.skip('should be a function', function () {
-        expect(turn).to.be.a('function');
+    it('should be a function', function () {
+        expect(Turn).to.be.a('function');
     });
 
-    it.skip('should be an instance of Turn', function () {
+    it('should be an instance of Turn', function () {
         expect(turn).to.be.an.instanceof(Turn);
     });
 
-    it.skip('should store a users guess to a question', function () {
+    it('should store a users guess to a question', function () {
         expect(turn.guess).to.equal('array');
     });
 
-    it.skip('should store card currently in play', function () {      
+    it('should store card currently in play', function () {      
         expect(turn.card).to.be.an.instanceof(Card);
-        expect(turn.returnCard()).to.deep.equal(card);
+        expect(turn.card).to.deep.equal(card);
     });
 
-    it.skip('should return a users guess', function () {      
+    it('should return a users guess', function () {      
         expect(turn.returnGuess()).to.equal(turn.guess);
     });
 
-    it.skip('should return a the card in play', function () {      
+    it('should return a the card in play', function () {      
         expect(turn.returnCard()).to.deep.equal(turn.card);
     });
 
-    it.skip('should return if a guess was correct or not', function () {
+    it('should return if a guess was correct or not', function () {
          expect(turn.evaluateGuess()).to.equal(true);
 
          const turn2 = new Turn('function', card)
@@ -46,11 +46,11 @@ describe('Turn', function () {
          expect(turn2.evaluateGuess()).to.equal(false);
     });
 
-    it.skip('should return feedback', function () {
+    it('should return feedback', function () {
          expect(turn.giveFeedback()).to.equal('correct!');
 
          const turn2 = new Turn('function', card)
 
-         expect(turn2.evaluateGuess()).to.equal('incorrect!');
+         expect(turn2.giveFeedback()).to.equal('incorrect!');
     });
 });
