@@ -7,8 +7,8 @@ const Turn = require('../src/Turn');
 const Round = require('../src/Round');
 const Game = require('../src/Game');
 
-describe('Round', function () {
-    let datafile;
+describe('Game', function () {
+    let dataFile;
     beforeEach('data creation', function () {
         dataFile = [
             {
@@ -43,31 +43,39 @@ describe('Round', function () {
         expect(Game).to.be.a('function');
     });
 
-    it.skip('should keep track of the current round', function () {
-        const newGame = new Game()
+
+
+    it('should create game cards', function () {
+        const newGame = new Game(dataFile);
+
+        expect(newGame.createCards().length).to.deep.equal(5);
+    });
+
+    it('should put cards in a deck', function () {
+        const newGame = new Game(dataFile);
+
+        expect(newGame.createDeck().countCards()).to.equal(5);
+    });
+
+    it('should create a new round with the deck', function () {
+        const newGame = new Game(dataFile);
+
+        expect(newGame.createRound().deck.cards.length).to.equal(5);
+        expect(newGame.createRound().returnCurrentCard().id).to.equal(26);
+    });
+
+    it('should keep track of the current round', function () {
+        const newGame = new Game(dataFile)
         expect(newGame.currentRound).to.equal(0);
     });
 
-    it.skip('should create game cards', function () {
+    it('should update current round when a round is created', function () {
         const newGame = new Game(dataFile);
-   
-        expect(newGame.createCards(dataFile).length).to.deep.equal(5);
-    });
+        
+        newGame.createRound()
 
-    it.skip('should put cards in a deck', function () {
-        const newGame = new Game(dataFile);
-        const cards = newGame.createCards(datafile)
-   
-        expect(newGame.createDeck(cards).countCards()).to.equal(5);
+        expect(newGame.currentRound).to.be.an.instanceof(Round);
+        expect(newGame.currentRound.deck.cards.length).to.equal(5);
+        expect(newGame.currentRound.returnCurrentCard().id).to.equal(26);
     });
-
-    it.skip('should create a new round with the deck', function () {
-        const newGame = new Game(dataFile);
-        const cards = newGame.createCards(datafile);
-        const deck = newGame.createDeck(cards);
-   
-        expect(newGame.createRound(deck).deck.length).to.equal(5);
-        expect(newGame.createRound(deck).deck.length).to.equal(5);
-        expect(newGame.createRound(deck).returnCurrentCard().id).to.equal(26);
-        });
 })

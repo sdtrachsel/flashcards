@@ -57,7 +57,7 @@ describe('Round', function () {
     });
 
     it('should return the current card', function () {
-        expect(round.reurnCurrentCard()).to.deep.equal(round.currentCard);
+        expect(round.returnCurrentCard()).to.deep.equal(round.currentCard);
     })
 
     it('should take a turn to update the turn count', function () {

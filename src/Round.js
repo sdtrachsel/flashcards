@@ -9,7 +9,7 @@ class Round {
         this.incorrectGuesses = [];
     }
 
-    reurnCurrentCard() {
+    returnCurrentCard() {
         return this.currentCard;
     }
 
