@@ -45,11 +45,12 @@ class Game {
   }
 
   start(){
-    this.createCards()
-    const deck = this.createDeck()
-    this.createRound()
-    this.printMessage(deck, this.currentRound)
-    this.printQuestion(this.currentRound)
+    this.createCards();
+    const deck = this.createDeck();
+    this.createRound();
+    this.printMessage(deck, this.currentRound);
+    this.currentRound.setStartTime();
+    this.printQuestion(this.currentRound);
   }
 }
 
