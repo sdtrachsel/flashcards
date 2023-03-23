@@ -70,6 +70,34 @@ describe('Round', function () {
         expect(round.turns).to.equal(2);
     });
 
+    it('should be able to find and set the start time', function() {
+        let time = Date.now()
+        
+        expect(round.startTime).to.equal(undefined)
+        
+        round.setStartTime()
+        
+        expect(round.startTime).to.be.closeTo(time, 499);
+    });
+   
+    it('should find and set end time', function() {
+        let time = Date.now()
+
+        expect(round.startTime).to.equal(undefined)
+
+        round.setEndTime()
+
+        expect(round.endTime).to.be.closeTo(time, 499);
+    });
+
+    it('should return time taken to complete in minutes and seconds', function() {
+        round.startTime = 1679581267781
+        round.endTime = 1679581300824
+        round.calculateTime()
+        
+        expect(round.calculateTime()).to.equal('1 minute(s) and 33 seconds');
+    });
+
     it('should update current card to next card', function () {
         round.takeTurn('guess')
 
