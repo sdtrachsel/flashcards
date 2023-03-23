@@ -59,9 +59,10 @@ class Round {
     }
 
     endRound(){
-        console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly! \n You completed all the questions in ${this.calculateTime()}`);
-        
-        return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+        const message = `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly! \n You completed all the questions in ${this.calculateTime()}`;
+
+         console.log(message);
+        return message;
     }
 };
 
