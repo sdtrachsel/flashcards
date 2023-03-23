@@ -30,7 +30,7 @@ class Round {
         let minutes = Math.round(totalSeconds / 60)
         let seconds = Math.round(totalSeconds % 60)
 
-        return `${minutes} minutes and ${seconds} seconds`
+        return `${minutes} minute(s) and ${seconds} seconds`
     }
 
     takeTurn(guess) {
