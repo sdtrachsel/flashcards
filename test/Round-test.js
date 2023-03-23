@@ -141,6 +141,6 @@ describe('Round', function () {
         round.takeTurn('array');
         round.takeTurn('mutator method');
 
-        // expect(round.endRound()).to.equal('** Round over! ** You answered 67% of the questions correctly!');
+        expect(round.endRound()).to.equal(`** Round over! ** You answered 67% of the questions correctly! \n You completed all the questions in NaN minute(s) and NaN seconds`);
     });
 });
