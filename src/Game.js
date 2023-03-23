@@ -9,35 +9,35 @@ const Round = require('../src/Round');
 class Game {
   constructor(questionFile) {
     this.currentRound = 0;
-    this.questionFile = questionFile
+    this.questionFile = questionFile;
   }
 
   createCards(){
      const cards = this.questionFile.map((question) => {
-      return new Card (question.id, question.question, question.answers, question.correctAnswer)
+      return new Card (question.id, question.question, question.answers, question.correctAnswer);
     })
 
-    return cards
+    return cards;
   }
 
   createDeck(){
-    const cards = this.createCards()
-    const deck = new Deck (cards)
+    const cards = this.createCards();
+    const deck = new Deck (cards);
     
-    return deck
+    return deck;
   }
 
   createRound(){
-    const deck = this.createDeck()
-    const round = new Round(deck)
-    this.currentRound = round
+    const deck = this.createDeck();
+    const round = new Round(deck);
+    this.currentRound = round;
 
-    return round
+    return round;
   }
 
   printMessage(deck, round) {
     console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
------------------------------------------------------------------------`)
+-----------------------------------------------------------------------`);
   }
 
   printQuestion(round) {
