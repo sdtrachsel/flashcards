@@ -95,7 +95,7 @@ describe('Round', function () {
         round.endTime = 1679581300824
         round.calculateTime()
         
-        expect(round.calculateTime()).to.equal('1 minutes and 33 seconds');
+        expect(round.calculateTime()).to.equal('1 minute(s) and 33 seconds');
     });
 
     it('should update current card to next card', function () {
